@@ -45,13 +45,18 @@ echo $cliente3->isAdult();
 </form>
 
 <?php
-$name = $_GET['name'];
-$lastname = $_GET['lastname'];
-$age = $_GET['age'];
-
 // echo "$name - $lastname - $age";
-$cliente4 = new Cliente( $name, $lastname, $age );
-var_dump( $cliente4 );
+
+//Aggiornamento del form per evitare gli errori e attivare il form solo se estitono dei parametri
+if( !empty($_GET) && !empty( $_GET['name'] ) && !empty( $_GET['lastname'] ) && !empty( $_GET['age'] ) ){
+  $name = $_GET['name'];
+  $lastname = $_GET['lastname'];
+  $age = $_GET['age'];
+
+  $cliente4 = new Cliente( $name, $lastname, $age );
+  var_dump( $cliente4 );
+}
+
 
 
 //array di istanze
